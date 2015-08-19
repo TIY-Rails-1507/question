@@ -1,9 +1,12 @@
 <h3>Questions</h3>
 
 
-These are the current questions:
-<ul>
-<% @questions.each do | question | %>
-  <li><%= question.title %> - <%= truncate(question.body, length: 20, separator: ' ') %>  </li>
-<% end %>
-</ul>
+<table border="1">
+  <% @questions.each do | question | %>
+  <tr>
+    <td><%= question.title %></td>
+    <td><%= truncate(question.body, length: 20, separator: ' ') %></td> 
+  </tr>
+  <% end %>
+
+</table>
