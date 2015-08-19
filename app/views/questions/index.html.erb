@@ -1,11 +1,12 @@
-<h3>Questions</h3>
+<h3><%= pluralize(@questions.count, 'Question') %></h3>
 
 
 <table border="1">
   <% @questions.each do | question | %>
   <tr>
     <td><%= question.title %></td>
-    <td><%= truncate(question.body, length: 20, separator: ' ') %></td> 
+    <td><%= format_body(question) %></td> 
+    <td><%= question.created_at.to_s(:long) %></td>
   </tr>
   <% end %>
 
