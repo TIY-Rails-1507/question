@@ -1,0 +1,9 @@
+<h3>Questions</h3>
+
+
+These are the current questions:
+<ul>
+<% @questions.each do | question | %>
+  <li><%= question.title %></li>
+<% end %>
+</ul>
