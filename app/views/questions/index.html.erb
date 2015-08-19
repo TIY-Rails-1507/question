@@ -4,6 +4,6 @@
 These are the current questions:
 <ul>
 <% @questions.each do | question | %>
-  <li><%= question.title %></li>
+  <li><%= question.title %> - <%= truncate(question.body, length: 20, separator: ' ') %>  </li>
 <% end %>
 </ul>
