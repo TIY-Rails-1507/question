@@ -1,3 +1,4 @@
+# app/controllers/questions_controller.rb
 class QuestionsController < ApplicationController
 
 	def index
@@ -5,6 +6,11 @@ class QuestionsController < ApplicationController
 	end
 
 	def show
+		question_id = params[:id]
+		@question = Question.find(question_id)
+	end
+
+	def edit
 		question_id = params[:id]
 		@question = Question.find(question_id)
 	end
