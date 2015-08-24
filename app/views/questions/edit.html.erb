@@ -1,18 +1,4 @@
 <!-- app/views/questions/edit.html.erb -->
 <h3><%= @question.title %></h3>
 
-<%= form_for(@question) do |f| %>
-	<p>
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-	</p>
-	<p>
-		<%= f.label :body %>
-	</p>
-	<p>	
-		<%= f.text_area :body, cols: 30, rows: 10 %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+<%= render('form') %>

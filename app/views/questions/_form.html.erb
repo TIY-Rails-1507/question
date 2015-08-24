@@ -1,0 +1,17 @@
+<!-- app/views/questions/_form.html.erb -->
+
+<%= form_for(@question) do |f| %>
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title, autofocus: true %>
+	</p>
+	<p>
+		<%= f.label :body %>
+	</p>
+	<p>	
+		<%= f.text_area :body, cols: 30, rows: 10 %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
