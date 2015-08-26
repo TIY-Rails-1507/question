@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
 	def update
 		@question = Question.find(params[:id])
 		@question.update(question_params)
+		flash[:notice] = "The question was updated"
 		redirect_to question_path(@question)
 	end
 
@@ -31,6 +32,7 @@ class QuestionsController < ApplicationController
 	def destroy 
 		question = Question.find(params[:id])
 		question.destroy 
+		flash[:notice] = "The question was deleted"
 		redirect_to questions_url
 	end
 
