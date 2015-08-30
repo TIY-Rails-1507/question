@@ -1,6 +1,8 @@
 # app/config/routes.rb
 
 Rails.application.routes.draw do
+  get 'answers/new'
+
   resources :questions do
     resources :answers
   end

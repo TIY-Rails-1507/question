@@ -1,0 +1,19 @@
+<!-- app/views/answers/new.html.erb -->
+<h3>New answer for: <%= @question.title %></h3>
+
+
+<%= form_for([@question, @answer]) do | f | %>
+	<p>
+		<%= f.label :body, "Please enter your answer" %>
+	</p>
+	<p>	
+		<%= f.text_area :body, cols: 30, rows: 10 %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
+
+
+

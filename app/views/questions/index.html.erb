@@ -1,13 +1,10 @@
-<h3><%= pluralize(@questions.count, 'Question') %></h3>
+<!-- app/views/questions/index.html.erb -->
+<h3>Questions</h3>
+
+<p><%= link_to "Add Question", new_question_path %> </p>
+
+<%= render partial: "questions", object: @all_questions, locals: { caption: "All Questions" } %>
+<%= render partial: "questions", object: @unanswered_questions, locals: { caption: "Unanswered Questions" } %>
+<%= render partial: "questions", object: @answered_questions, locals: { caption: "Answered Questions" } %>
 
 
-<table border="1">
-  <% @questions.each do | question | %>
-  <tr>
-    <td><%= link_to(question.title,  question_path(question)) %></td>
-    <td><%= format_body(question) %></td> 
-    <td><%= question.created_at.to_s(:long) %></td>
-  </tr>
-  <% end %>
-
-</table>

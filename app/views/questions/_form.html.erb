@@ -1,8 +1,16 @@
 <!-- app/views/questions/_form.html.erb -->
 
 <%= form_for(@question) do |f| %>
+	<p>The form contains <%= pluralize(@question.errors.count, "error") %> </p>
+	<ul>
+	<% @question.errors.full_messages.each do | message | %>
+		<li><%= message %></li>
+	<% end %>
+	</ul>
 	<p>
 		<%= f.label :title %>
+	</p>
+	<p>
 		<%= f.text_field :title, autofocus: true %>
 	</p>
 	<p>
@@ -12,6 +20,6 @@
 		<%= f.text_area :body, cols: 30, rows: 10 %>
 	</p>
 	<p>
-		<%= f.submit %>
+		<%= f.submit nil, :class => 'btn btn-default' %>
 	</p>
 <% end %>

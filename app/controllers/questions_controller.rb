@@ -2,7 +2,9 @@
 class QuestionsController < ApplicationController
 
 	def index
-		@questions = Question.all
+		@all_questions = Question.all
+		@answered_questions = Question.with_answers
+		@unanswered_questions = Question.without_answers
 	end
 
 	def show
@@ -15,9 +17,12 @@ class QuestionsController < ApplicationController
 
 	def update
 		@question = Question.find(params[:id])
-		@question.update(question_params)
-		flash[:notice] = "The question was updated"
-		redirect_to question_path(@question)
+		if @question.update(question_params)
+			flash[:notice] = "The question was updated"
+			redirect_to question_path(@question)
+		else
+			render :edit
+		end
 	end
 
 	def new
@@ -25,8 +30,13 @@ class QuestionsController < ApplicationController
 	end
 
 	def create
-		question = Question.create(question_params)
-		redirect_to question_path(question)
+		@question = Question.new(question_params)
+		
+		if(@question.save)
+			redirect_to question_path(@question)
+		else
+			render :new
+		end
 	end
 
 	def destroy 

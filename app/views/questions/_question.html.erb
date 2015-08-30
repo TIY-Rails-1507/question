@@ -1,0 +1,8 @@
+<!-- app/views/questions/_question.html.erb -->
+
+<div>
+	<h4><%= question.title %></h4>
+	<p><%= format_body(question) %></p>
+	<p><%= link_to(pluralize(question.answers.count, "answer"), question_answers_path(question))  %></p>
+	<p><%= link_to "Show", question_path(question) %> | <%= link_to "Edit", edit_question_path(question) %> |  <%= link_to "Delete", question_path(question), method: :delete, data: {confirm: "Would you like to delete this?"} %></p>
+</div>
