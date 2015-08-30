@@ -1,7 +1,7 @@
 # app/config/routes.rb
 
 Rails.application.routes.draw do
-  get 'answers/new'
+  root 'questions#index'
 
   resources :questions do
     resources :answers
