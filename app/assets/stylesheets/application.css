@@ -10,11 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap.min 
+ *
  *= require_tree .
  *= require_self
  */
 
-.field_with_errors > label  {
+/*.field_with_errors > label  {
     color: red;
 }
 
@@ -23,4 +25,4 @@
     border-color: red;
     border-style: solid;
     border-width: 2px;
-}
+}*/
