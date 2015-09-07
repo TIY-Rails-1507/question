@@ -1,5 +1,5 @@
 # app/models/user.rb
-require_dependency 'validators/email_validator.rb'
+require_dependency 'app/validators/email_validator.rb'
 class User < ActiveRecord::Base
 	before_save :downcase_email
 
